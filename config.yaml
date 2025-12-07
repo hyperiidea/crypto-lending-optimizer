@@ -19,13 +19,15 @@ features:
 models:
   volatility:
     lightgbm:
-      n_estimators: 500
-      learning_rate: 0.05
-      max_depth: 7
-      num_leaves: 31
-      min_child_samples: 20
-      subsample: 0.8
-      colsample_bytree: 0.8
+      n_estimators: 150      # Further reduced for less overfitting
+      learning_rate: 0.03    # Slower learning
+      max_depth: 4           # Even shallower trees
+      num_leaves: 15         # Simpler trees
+      min_child_samples: 100 # Much larger leaf sizes
+      subsample: 0.6         # More aggressive subsampling
+      colsample_bytree: 0.6  # More feature randomness
+      reg_alpha: 5.0         # Stronger L1 regularization
+      reg_lambda: 5.0        # Stronger L2 regularization
       random_state: 42
 
     xgboost:

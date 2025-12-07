@@ -120,7 +120,7 @@ cd webapp && npm run dev
     │ Volatility      │  │  121K hourly   │
     │ Predictor       │  │  candles       │
     │                 │  │  2012-2025     │
-    │ Test R²: 0.223  │  │  41 features   │
+    │ Test R²: 0.311  │  │  41 features   │
     └─────────────────┘  └────────────────┘
 ```
 
@@ -262,12 +262,15 @@ MMR = base_mmr + vol_adjustment + leverage_scaling
 
 ### Volatility Prediction (LightGBM)
 
-| Metric | Value |
-|--------|-------|
-| Test RMSE | 0.194 |
-| Test MAE | 0.144 |
-| Test R² | 0.223 |
-| Training Time | ~3 seconds |
+| Metric | Train | Test |
+|--------|-------|------|
+| RMSE | 0.414 | 0.183 |
+| MAE | 0.231 | 0.136 |
+| R² | 0.628 | 0.311 |
+| Training Time | ~1 second | - |
+| Overfitting Severity | Mild (R² gap: 0.316) | - |
+
+**Regularization Strategy**: Aggressive anti-overfitting configuration with shallow trees (depth=4), large leaf sizes (100 samples), strong L1/L2 penalties (5.0), and reduced ensemble size (150 trees).
 
 **Feature Categories** (41 total):
 - Volatility indicators (realized, Parkinson, volume-weighted)
