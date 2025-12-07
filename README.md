@@ -410,12 +410,6 @@ python run_model_comparison.py
 
 ---
 
-## 📝 License
-
-MIT License - See [LICENSE](LICENSE) file for details
-
----
-
 ## 🤝 Contributing
 
 Contributions welcome! Please:
@@ -424,14 +418,6 @@ Contributions welcome! Please:
 3. Commit your changes
 4. Push to the branch
 5. Open a Pull Request
-
----
-
-## 📧 Contact
-
-For questions, issues, or collaboration:
-- GitHub Issues: [Repository Issues](https://github.com/yourusername/crypto-lending-optimizer/issues)
-- Email: your.email@example.com
 
 ---
 
