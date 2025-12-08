@@ -20,7 +20,7 @@ build/
 # models/*.pkl
 # models/*.json
 
-# Data (large files)
+# Data (large files - download separately)
 btcusd_1-min_data.csv
 data/raw/*.csv
 data/processed/*.parquet

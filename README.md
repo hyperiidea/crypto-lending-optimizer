@@ -46,7 +46,26 @@ npm install
 cd ..
 ```
 
-### 2. Process Data & Train Models
+### 2. Download Dataset
+
+**Download BTC Historical Data (366MB)**:
+- Source: [Kaggle - Bitcoin Historical Data](https://www.kaggle.com/datasets/mczielinski/bitcoin-historical-data)
+- File: Download `bitstampUSD_1-min_data_2012-01-01_to_2021-03-31.csv`
+- Rename to: `btcusd_1-min_data.csv`
+- Place in: Project root directory (`crypto-lending-optimizer/`)
+
+**Directory structure after download**:
+```
+crypto-lending-optimizer/
+├── btcusd_1-min_data.csv  ← Place downloaded file here
+├── data/
+│   ├── raw/
+│   └── processed/
+├── models/
+└── ...
+```
+
+### 3. Process Data & Train Models
 
 ```bash
 # Process 13+ years of BTC hourly data (creates 121K samples with 41 features)
@@ -59,7 +78,7 @@ python run_fast_model_comparison.py
 python train_revenue_model.py
 ```
 
-### 3. Start Services
+### 4. Start Services
 
 ```bash
 # Terminal 1: Backend API
@@ -278,18 +297,6 @@ MMR = base_mmr + vol_adjustment + leverage_scaling
 - Market regime (trend strength, range detection)
 - Volume ratios and moving averages
 - Cyclical time encoding
-
-### Revenue Optimization
-
-| Metric | Value |
-|--------|-------|
-| Train R² | 0.9998 |
-| Validation R² | 0.9997 |
-
-Simulates trader behavior using economic principles:
-- Utilization based on rate elasticity
-- Hold time as function of cost/volatility
-- Liquidation probability from GBM
 
 ---
 
